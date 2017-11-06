@@ -3,21 +3,47 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <header></header>
+    <div id='page'>
+      <section class="tweets">
+        <h3 id="section_header"></h3>
+        <div id="new_tweets_button"></div>
+        <article id="new_tweets">
+          
+        </article>
+      </section>
+    </div>
+
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
+        $body.html();
+        var dayTime = new Date;
+        
+
+        $('header').text('Twittler');
+        $('#section_header').text('Your Tweets');
+        $('#new_tweets_button').text('Show Tweets');
+
+        $('#new_tweets_button').on('click',function() {
+          $('#new_tweets p').slideToggle();
+          $('#new_tweets div').slideToggle();
+        });
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
+          var timeCreated = $('<p>Tweetled on ' + dayTime + '</p>');
           $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
+          $tweet.appendTo('#new_tweets');
+          timeCreated.appendTo('#new_tweets');
           index -= 1;
+
         }
 
       });

@@ -1,0 +1,53 @@
+#new_tweets div {
+  border: 6px solid #949599;
+  border-radius: 10px;
+  height: 50px;
+  margin: 20px;
+  padding: 20px;
+  width: 400px;
+  background-color: #278EE8;
+}
+#section_header {
+	border: 5px;
+	border-radius: 5px;
+	height: 19px;
+	width: 100px;
+	margin: 10px;
+	padding: 5px;
+	background-color: grey;
+	color: white;
+}
+
+
+#new_tweets div{
+	display: none;
+}
+
+#new_tweets p{
+	display: none;
+	margin-left: 30px;
+}
+
+#new_tweets_button{
+	color: blue;
+	text-decoration: underline blue;
+	margin: 10px;
+}
+
+header {
+	background-color: white;
+	border-radius: 7px;
+	width: 85px;
+	font-size: 24px;
+	color: #278EE8;
+	font-weight: bold;
+}
+
+#page {
+	background-color: white;
+	border-radius: 7px;
+}
+
+body {
+	background-color: #278EE8;
+}
