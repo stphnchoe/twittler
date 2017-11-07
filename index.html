@@ -63,8 +63,10 @@
         while(userTweetNumber >= 0){
           var tweet = userTweet[userTweetNumber];
           var $tweet = $('<div></div>');
+          var timeCreated = $('<p>Tweetled on ' + dayTime + '</p>');
           $tweet.text('@' + userID + ': ' + tweet.message);
           $tweet.appendTo('.user_tweets');
+          timeCreated.appendTo('.user_tweets');
           userTweetNumber -= 1;
         }
         });
