@@ -24,7 +24,7 @@
       $(document).ready(function(){
         var $body = $('body');
         $body.html();
-        var dayTime = new Date;
+        
         
 
         $('header').text('Twittler');
@@ -48,6 +48,7 @@
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
+          var dayTime = new Date;
           var $tweet = $('<div class="tweets"></div>');
           var timeCreated = $('<p>Tweetled on ' + dayTime + '</p>');
           $tweet.html('@' + '<span id=' + tweet.user + '>' + tweet.user + '</span>' + ': ' + tweet.message);
@@ -61,6 +62,7 @@
           var userTweet = streams.users[userID];
           var userTweetNumber = userTweet.length - 1;
         while(userTweetNumber >= 0){
+          var dayTime = new Date;
           var tweet = userTweet[userTweetNumber];
           var $tweet = $('<div></div>');
           var timeCreated = $('<p>Tweetled on ' + dayTime + '</p>');
