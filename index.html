@@ -30,11 +30,17 @@
         $('header').text('Twittler');
         $('.section_header').text('Your Tweets');
         $('#new_tweets_button').text('Toggle Tweets Display');
+        $('#user_tweets_button').text('Toggle User Tweets');
 
         $('#new_tweets_button').on('click',function() {
           $('.new_tweets p').slideToggle();
           $('.new_tweets div').slideToggle();
           $(this).css({'color': 'purple', 'text-decoration': 'underline purple'});
+        });
+
+        $('#user_tweets_button').on('click', function() {
+          $('section').find('.user_tweets').toggle();
+          $('section').find('#user_tweets_button').css({'color': 'purple', 'text-decoration': 'underline purple'});
         });
 
 
@@ -44,14 +50,14 @@
           var tweet = streams.home[index];
           var $tweet = $('<div class="tweets"></div>');
           var timeCreated = $('<p>Tweetled on ' + dayTime + '</p>');
-          $tweet.html('@' + '<span id=user_id>' + tweet.user + '</span>' + ': ' + tweet.message);
+          $tweet.html('@' + '<span id=' + tweet.user + '>' + tweet.user + '</span>' + ': ' + tweet.message);
           $tweet.appendTo('.new_tweets');
           timeCreated.appendTo('.new_tweets');
 
           index -= 1;
 
-          $('.new_tweets').on('click', function() {
-          var userID = $(this).find('#user_id').text();
+          $('.new_tweets').on('click', 'span', function() {
+          var userID = $(this).text();
           var userTweet = streams.users[userID];
           var userTweetNumber = userTweet.length - 1;
         while(userTweetNumber >= 0){
