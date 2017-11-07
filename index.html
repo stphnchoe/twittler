@@ -50,8 +50,8 @@
 
           index -= 1;
 
-          $('#user_id').on('click', function() {
-          var userID = $(this).text();
+          $('.new_tweets').on('click', function() {
+          var userID = $(this).find('#user_id').text();
           var userTweet = streams.users[userID];
           var userTweetNumber = userTweet.length - 1;
         while(userTweetNumber >= 0){
