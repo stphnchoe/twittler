@@ -9,9 +9,11 @@
     <header></header>
     <div id='page'>
       <section class="tweets">
-        <h3 id="section_header"></h3>
+        <h3 class="section_header"></h3>
+        <div id="user_tweets_button"></div>
+        <article class="user_tweets"></article>
         <div id="new_tweets_button"></div>
-        <article id="new_tweets">
+        <article class="new_tweets">
           
         </article>
       </section>
@@ -26,26 +28,16 @@
         
 
         $('header').text('Twittler');
-        $('#section_header').text('Your Tweets');
+        $('.section_header').text('Your Tweets');
         $('#new_tweets_button').text('Toggle Tweets Display');
 
         $('#new_tweets_button').on('click',function() {
-          $('#new_tweets p').slideToggle();
-          $('#new_tweets div').slideToggle();
+          $('.new_tweets p').slideToggle();
+          $('.new_tweets div').slideToggle();
           $(this).css({'color': 'purple', 'text-decoration': 'underline purple'});
         });
 
-        $('#user_id').on('click', function() {
-          var userName = $(this).text(); // put in a user name variable 
-          var userTweetNumber = streams.user[userName].length - 1;
-        while(userTweetNumber >= 0){
-          var tweet = streams.user[username][userTweetNumber];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + userName + ': ' + tweet.message);
-          $tweet.appendTo('#user_id');
-          userTweetNumber -= 1;
-        }
-        });
+
 
         var index = streams.home.length - 1;
         while(index >= 0){
@@ -53,10 +45,23 @@
           var $tweet = $('<div class="tweets"></div>');
           var timeCreated = $('<p>Tweetled on ' + dayTime + '</p>');
           $tweet.html('@' + '<span id=user_id>' + tweet.user + '</span>' + ': ' + tweet.message);
-          $tweet.appendTo('#new_tweets');
-          timeCreated.appendTo('#new_tweets');
+          $tweet.appendTo('.new_tweets');
+          timeCreated.appendTo('.new_tweets');
 
           index -= 1;
+
+          $('#user_id').on('click', function() {
+          var userID = $(this).text();
+          var userTweet = streams.users[userID];
+          var userTweetNumber = userTweet.length - 1;
+        while(userTweetNumber >= 0){
+          var tweet = userTweet[userTweetNumber];
+          var $tweet = $('<div></div>');
+          $tweet.text('@' + userID + ': ' + tweet.message);
+          $tweet.appendTo('.user_tweets');
+          userTweetNumber -= 1;
+        }
+        });
 
         }
 

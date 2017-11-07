@@ -1,4 +1,4 @@
-#new_tweets div {
+.new_tweets div {
   border: 6px solid #949599;
   border-radius: 10px;
   height: 50px;
@@ -7,7 +7,7 @@
   width: 400px;
   background-color: #278EE8;
 }
-#section_header {
+.section_header {
 	border: 5px;
 	border-radius: 5px;
 	height: 19px;
@@ -19,11 +19,11 @@
 }
 
 
-#new_tweets div{
+.new_tweets div{
 	display: none;
 }
 
-#new_tweets p{
+.new_tweets p{
 	display: none;
 	margin-left: 30px;
 }
