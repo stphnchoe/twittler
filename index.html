@@ -61,6 +61,7 @@
           var userID = $(this).text();
           var userTweet = streams.users[userID];
           var userTweetNumber = userTweet.length - 1;
+          $('.user_tweets').html('');
         while(userTweetNumber >= 0){
           var dayTime = new Date;
           var tweet = userTweet[userTweetNumber];
